@@ -1,3 +1,5 @@
+package exercises.DIY.inheritance1;
+
 public class WordUtils {
    /** Returns the length of the longest word. */
    public static String longest(SLList<String> list) {

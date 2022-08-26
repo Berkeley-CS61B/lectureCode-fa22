@@ -1,3 +1,5 @@
+package exercises.DIY.inheritance1;
+
 public class IsADemo {
     public static void main(String[] args) {
         /*List61B<String> someList = new SLList<>();
