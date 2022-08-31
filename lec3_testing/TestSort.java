@@ -1,53 +1,44 @@
 package lec3_testing;
 
+//The line below means we can just say "Test" and
+//our code will automatically know it refers to org.junit.Test
 import org.junit.Test;
-import org.junit.jupiter.api.Tag;
-
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-
 import static org.junit.Assert.*;
 
-/** Tests the the Sort class. */
+/** Tests the Sort class. */
 public class TestSort {
-    /** Test the Sort.sort method. */
+    /** Tests Sort.sort */
     @Test
     public void testSort() {
-        String[] input = {"i", "have", "an", "egg"};
-        String[] expected = {"an", "egg", "have", "i"};
+        String[] input = {"they", "changed", "the", "system"};
+        String[] expected = {"changed", "system", "the", "they"};
 
         Sort.sort(input);
+        // If our code works, input will equal expected
 
         assertArrayEquals(expected, input);
     }
 
-    /** Test the Sort.findSmallest method. */
-    @Test
+    /** Tests Sort.findSmallest.
+     *  Note: The "smallest" string is the earliest alphabetical string.
+     *  So "aardvark" comes before "zebra". */
+   /* @Test
     public void testFindSmallest() {
-        String[] input = {"i", "have", "an", "egg"};
-        int expected = 2;
+        String[] input = {"they", "changed", "the", "system"};
+        int expected = 1;
 
-        int actual = Sort.findSmallest(input, 0);
+        int actual = Sort.findSmallest(input);
+        // If our code works, actual will equal expected
+
         assertEquals(expected, actual);
+    }*/
 
-        String[] input2 = {"there", "are", "many", "pigs"};
-        int expected2 = 2;
-
-        int actual2 = Sort.findSmallest(input2, 2);
-        assertEquals(expected2, actual2);
-    }
-
-    /** Test the Sort.swap method. */
     @Test
     public void testSwap() {
-        String[] input = {"i", "have", "an", "egg"};
-        int a = 0;
-        int b = 2;
-        String[] expected = {"an", "have", "i", "egg"};
+        String[] input = {"they", "changed", "the", "system"};
+        String[] expected = {"they", "system", "the", "changed"};
 
-        Sort.swap(input, a, b);
+        Sort.swap(input, 1, 3);
         assertArrayEquals(expected, input);
     }
 }
