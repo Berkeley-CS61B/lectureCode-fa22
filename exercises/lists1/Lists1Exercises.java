@@ -18,9 +18,9 @@ public class Lists1Exercises {
     }
 
     public static void main(String[] args) {
-        IntList L = new IntList(5, null);
-        L.rest = new IntList(7, null);
-        L.rest.rest = new IntList(9, null);
+        IntList L = new IntList(15, null);
+        L = new IntList(10, L);
+        L = new IntList(5, null);
 
         System.out.println(L.size());
         System.out.println(L.iterativeSize());
