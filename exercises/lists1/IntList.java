@@ -1,3 +1,5 @@
+package exercises.lists1;
+
 public class IntList {
 	public int first;
 	public IntList rest;

@@ -3,7 +3,7 @@ package lec2_intro2;
 /**
  * Created by hug.
  */
-public class DogProblemNoHelperMethods {
+public class DogProblemUglySolution {
     public static Dog[] largerThanFourNeighbors(Dog[] dogs) {
         Dog[] returnDogs = new Dog[dogs.length];
         int cnt = 0;

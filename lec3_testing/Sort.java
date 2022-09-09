@@ -1,38 +1,36 @@
 package lec3_testing;
 
 public class Sort {
-	/** Sorts strings destructively. */
+	/** Sort the strings in alphabetical order. */
 	public static void sort(String[] x) {
-        sort(x, 0);
+		sort(x, 0);
 	}
 
-	/** Sorts x starting at position start. */
-	private static void sort(String[] x, int start) {
-	    if (start == x.length) {
-	        return;
-        }
-	    int smallestIndex = findSmallest(x, start);
-	    swap(x, start, smallestIndex);
-	    sort(x, start + 1);
-    }
+	public static void sort(String[] x, int k) {
+		if (k == x.length) {
+			return;
+		}
+		int smallest = findSmallest(x, k);
+		swap(x, k, smallest);
+		sort(x, k + 1);
+	}
 
-	/** Swap item a with b. */
-	public static void swap(String[] x, int a, int b) {
-	    String temp = x[a];
-	    x[a] = x[b];
-	    x[b] = temp;
-    }
+	/** Returns index of smallest string. */
+	public static int findSmallest(String[] x, int k) {
+		int currentSmallest = k;
+		for (int i = k; i < x.length; i += 1) {
+			int cmpResult = x[i].compareTo(x[currentSmallest]);
 
-	/** Return the index of the smallest String in x, starting at start. */
-	public static int findSmallest(String[] x, int start) {
-        int smallestIndex = start;
-        for (int i = start; i < x.length; i += 1) {
-            int cmp = x[i].compareTo(x[smallestIndex]);
-            // from the internet, if x[i] < x[smallestIndex], cmp will be -1.
-            if (cmp < 0) {
-                smallestIndex = i;
-            }
-        }
-        return smallestIndex;
-    }
+			if (cmpResult < 0) {
+				currentSmallest = i;
+			}
+		}
+		return currentSmallest;
+	}
+
+	public static void swap(String[] input, int a, int b) {
+		String temp = input[a];
+		input[a] = input[b];
+		input[b] = temp;
+	}
 }
