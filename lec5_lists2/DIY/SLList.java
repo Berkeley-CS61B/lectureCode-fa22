@@ -37,6 +37,6 @@ public class SLList {
     /** Returns the number of items in the list using recursion. */
     public int size() {
         /* Your Code Here! */
+        return 0;
     }
-
 }
