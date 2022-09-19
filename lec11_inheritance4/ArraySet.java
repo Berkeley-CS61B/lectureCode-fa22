@@ -22,6 +22,27 @@ public class ArraySet<T> implements Iterable<T> {
         return false;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof ArraySet oas) {
+            // check sets are of the same size
+            if (oas.size != this.size) {
+                return false;
+            }
+
+            // check that all of MY items are in the other array set
+            for (T x : this) {
+                if (!oas.contains(x)) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+        // o is not an arrayset, so return false
+        return false;
+    }
+
     /* Associates the specified value with the specified key in this map.
        Throws an IllegalArgumentException if the key is null. */
     public void add(T x) {
@@ -94,43 +115,11 @@ public class ArraySet<T> implements Iterable<T> {
         return returnSet;
     } */
 
-
-    @Override
-    public boolean equals(Object other) {
-        if (this == other) {
-            return true;
-        }
-        if (other == null) {
-            return false;
-        }
-        if (other.getClass() != this.getClass()) {
-            return false;
-        }
-        ArraySet<T> o = (ArraySet<T>) other;
-        if (o.size() != this.size()) {
-            return false;
-        }
-        for (T item : this) {
-            if (!o.contains(item)) {
-                return false;
-            }
-        }
-        return true;
-    }
-
     public static void main(String[] args) {
         ArraySet<Integer> aset = new ArraySet<>();
         aset.add(5);
         aset.add(23);
         aset.add(42);
-
-        //iteration
-        for (int i : aset) {
-            System.out.println(i);
-        }
-
-        //toString
-        System.out.println(aset);
 
         //equals
         ArraySet<Integer> aset2 = new ArraySet<>();
@@ -139,9 +128,6 @@ public class ArraySet<T> implements Iterable<T> {
         aset2.add(42);
 
         System.out.println(aset.equals(aset2));
-        System.out.println(aset.equals(null));
-        System.out.println(aset.equals("fish"));
-        System.out.println(aset.equals(aset));
 
         //EXTRA VIDEO CODE
         //ArraySet<String> asetOfStrings = ArraySet.of("hi", "I'm", "here");
